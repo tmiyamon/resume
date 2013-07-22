@@ -1,0 +1,88 @@
+
+mixin section(title)
+  dl.section
+    dt 
+      h3 #{title}
+    dd 
+      block
+
+mixin subsection(title)
+  dl.subsection
+    dt 
+      h4 #{title}
+    dd 
+      block
+
+mixin subsubsection(title)
+  dl.subsubsection
+    dt 
+      #{title}
+    dd 
+      block
+
+
+doctype 5
+html(lang="en")
+  head
+    link(rel='stylesheet', href='./bootstrap/css/bootstrap.min.css')
+    style.
+      #resume-header {
+        margin-top: 5px;
+      }
+      #resume-header .fullname {
+        margin-left: 0px;
+      }
+      #resume-header address {
+        margin-bottom: 0px;
+      }
+      dl.section h3 {
+        border-bottom: thin solid #cccccc;
+      }
+    title= pageTitle
+  body
+    .container
+      .row
+        .span12#resume-header
+          .fullname.span5.text-left
+            h3 Takuya Miyamoto
+          .span7.text-right
+            include personal_information
+        .span12
+          +section('Interests')
+            p 
+              Programming Language, Data Visualization, User Interface in 2D and 3D, Augmented Reality, Virtual Reality, Device, Desktop Metaphor 
+          +section('Work Experience')
+            +subsection('2009 - present, Software Engeinner, Rakuten Inc')
+              dl
+                dt Global E-Commerce Platform
+                dd
+                  ul
+                    li Lead 5 engineers focused on checkout feature to build fundermental common architecture for efficient overseas development.
+                    li Improved development cycle with Agile, TDD and CI server and developed in Ruby on Rails.
+                    li Contributed to reduce initial time cost by 50% to open in new countries.
+                    li Managed 4 countries on this platform.
+                    li Eliminated daily manual operation by creating auto releasing and deploying system.
+                dt China E-Commerce Marketplace
+                dd 
+                  ul
+                    li Developed and designed dozen of front-end web applications and API in Java and Python.
+                    li Reduced response time by 50 percents and drop rate in checkout system,
+                    li Refactored source codes in 30% reductions of lines.
+                    li Improved UI 
+                dt Taiwan E-Commerce Marketplace
+                dd 
+                  ul
+                    li Built a high performance API which responses 10ms in average.
+                    li Built an essential API to control inventory shared in all countries to which we expanded our besiness, contributing more than 10 million yen per day. Implemented in JAX-WS and JAX-RS and currently used in Taiwan, China and Indnessia.
+          +section('Education')
+            +subsection('MS Information Engineering, Osaka University, Osaka Japan 2009')
+                p Presented more flexible adaptable user interface by providing a customizable GUI across multiple applications, and confirmed to get better user experience than traditional one.
+            +subsection('BS Information Engineering, Osaka University, Osaka Japan 2006')
+          +section('Projects')
+            +subsection('Visualization method for shop festivity in e-commerce - Fall 2009')
+              p 
+                Language/Platform: JavaScript,Xul,Html,CSS/Firefox,Linux<br/>
+                Visualized user movement between each shop pages in order to show festivity, by tracking with JavaScript on page loaded. View interface is provided as a small window in one corner and is able to drag and click to jump to alive shop. To visualize festivity on virtual world, user can act as the same to real world; user's activity depends on shop's festivity in a mall.
+          +section('Computer Skills')
+            p 
+              Languages: Java, Python, Ruby, Scala, JavaScript, CoffeeScript, Objective-C
